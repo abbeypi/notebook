@@ -1,0 +1,67 @@
+/* 1. Seamless Header to match the Substack top bar */
+/* Force the global background and layout elements to match Substack */
+body, 
+[data-md-color-scheme="slate"], 
+.md-container {
+  background-color: #151515 !important;
+}
+
+/* Ensure the top header blends seamlessly */
+.md-header {
+  background-color: #494b49 !important;
+  border-bottom: none;
+}
+
+/* Core Body Text & Sidebar Navigation Items */
+body, 
+.md-nav__link, 
+.md-typeset,
+p {
+  color: #bebebe !important;
+}
+
+/* Bright White for Main Titles & Headers */
+.md-typeset h1, 
+.md-typeset h2, 
+.md-typeset h3, 
+.md-typeset h4,
+.md-header__title {
+  color: #bebebe !important;
+  font-weight: 700;
+}
+
+/* Muted grey for table of contents text and secondary details */
+.md-nav__title, 
+.md-nav__link--active,
+.md-meta {
+  color: #7b7e7c !important;
+}
+
+/* Darker contrast backgrounds for the search bar and code blocks */
+.md-search__inner,
+.md-typeset pre code {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+/* Subtle white underlines for links to match Substack style */
+.md-typeset a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+.md-typeset a:hover {
+  color: #909090 !important;
+}
+
+.md-logo svg {
+  fill: #bebebe !important;
+  color: #bebebe !important;
+}
+
+.md-logo svg path {
+  fill: #bebebe !important;
+}
+
+.md-search {
+  display: none !important;
+}
