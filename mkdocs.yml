@@ -1,0 +1,14 @@
+site_name: My Engineering Notebook
+theme:
+  name: material
+  palette:
+    scheme: slate 
+    primary: teal
+
+markdown_extensions:
+  - pymdownx.superfences # Enhanced code blocks
+  - pymdownx.arithmatex: # LaTeX Math support
+      generic: true
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
