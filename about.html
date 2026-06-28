@@ -43,7 +43,7 @@
       gap: 5rem; 
       max-width: none; 
       margin: 5rem auto; 
-      padding: 0 4rem; 
+      padding: 0 8rem 4rem; 
     }
     .left-pane h2 { 
       font-family: Bahnschrift;
@@ -62,6 +62,15 @@
       display: flex; 
       flex-direction: column; 
       gap: 1rem; 
+      margin-top: -1.5rem;
+    }
+    .spotify-container {
+      width: 100%;
+      opacity: 0.85;        /* Softens the high-contrast embed to match your clean aesthetic */
+      transition: opacity 0.2s ease;
+    }
+    .spotify-container:hover {
+      opacity: 1;           /* Snaps to full contrast when interacting */
     }
     .right-column a { 
       text-decoration: none; 
@@ -79,11 +88,23 @@
       color: #2a2b2c;          /* Replace with your preferred external link color */
       text-decoration: underline; /* Optional: gives a visual cue it's an external link */
     }
+    .spotify-container {
+      max-width: 500px; /* Limits the player width so it doesn't span the whole screen */
+      margin: 2rem auto; /* Centers it if placed in a main column */
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .spotify-container:hover {
+      opacity: 1; /* Subtle highlight effect on hover */
+    }
   </style>
 </head>
+
+
+
 <body>
-
-
+  
   <nav>
     <a href="index.html" class="logo">abbey&pi;</a>
     
@@ -93,23 +114,56 @@
     <a href="dsp.html">DSP</a>
     <a href="side_projects.html">Side Projects</a>
     <a href="about.html">about</a>
-    <a href="https://abbeypi.substack.com/" target="_blank" rel="noopener noreferrer">AbbeyPi</a>
+    
   </nav>
 
   <div class="grid-container">
     <div class="left-pane">
       <h2>About</h2>
       <p>Waddup,</p>
-      <p>My name is Abbey Pienaar, I'm a 2nd year Electronic Engineering student at the University of Pretoria. I'm interested in audio applications, signal processing, mathematics, and committed to being a student of the world.</p>
+      <p>My name is Abbey Pienaar, I'm a 2nd year Electronic Engineering student at the University of Pretoria. I'm interested in audio</p>
+      <p>applications, signal processing, mathematics, and committed to being a student of the world.</p>
       <p>Some personal explorations include my art practise, writing, and philosophy, all of which can be viewed on my Substack. <a href="https://abbeypi.substack.com/" target="_blank" rel="noopener noreferrer">AbbeyPi</a></p>
-
-      
-
-      
     </div>
+    <div class="right-column">
+      <div class="spotify-container">
+        <iframe 
+          style="border-radius:12px" 
+          src="https://open.spotify.com/embed/playlist/67fb98i84lMmJALrFWLBmp?utm_source=generator&theme=0&si=196b3e8056744d7b" 
+          width="100%" 
+          height="352" 
+          frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+
+        <p style="margin-top: 1rem; font-size: 0.85rem; letter-spacing: 0.05em; text-align: center;">
+          <a href="#" id="popout-trigger" style="color: #424d48; text-decoration: underline; text-transform: lowercase;">
+            ↗ detach player for continuous audio
+          </a>
+        </p>
+      </div>
     
     
   </div>
+  <script>
+    document.getElementById('popout-trigger').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Defines precise micro-dimensions for the detached popout window
+      const width = 360;
+      const height = 400;
+      const left = window.screen.width - width - 50; // Aligns it 50px from right edge of desktop
+      const top = 100;
+
+      window.open(
+        'player.html', 
+        'abbeyπtunes', 
+        `width=${width},height=${height},left=${left},top=${top},resizable=no,scrollbars=no,status=no,toolbar=no,menubar=no`
+      );
+    });
+  </script>
 
 </body>
 </html>

@@ -11,3 +11,46 @@ Where $V_T \approx 26\text{mV}$ at room temperature constraints.
 
 ### Repository & Resources
 * **Source Project:** [github.com/AbbeyPi/synth-modules/vco](https://github.com/)
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+
+## blah
+
+## blah
+
+## blah
+
+## blah
+
+## blah
