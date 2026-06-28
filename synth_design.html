@@ -10,11 +10,25 @@
       margin: 0; 
       background: #ffffff; 
     }
+    .logo {
+      font-family: Bahnschrift;
+      font-size: 3rem;
+      font-weight: 200;       /* Makes the font bold/strong */
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: #424d48;
+      text-decoration: none;
+    }
     nav { 
       display: flex; 
-      justify-content: flex-end; 
+      justify-content: space-between; 
+      align-items: center;
       padding: 2.5rem 4rem; 
       gap: 2.5rem; 
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
     }
     nav a { 
       text-decoration: none; 
@@ -63,11 +77,16 @@
 </head>
 <body>
 
+
   <nav>
+    <a href="index.html" class="logo">abbey&pi;</a>
+    
+    <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="synth_design.html">Synth Design</a>
     <a href="dsp.html">DSP</a>
     <a href="side_projects.html">Side Projects</a>
+    <a href="about.html">about</a>
   </nav>
 
   <div class="grid-container">

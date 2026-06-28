@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentation - Abbey Pi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+
+  <style>
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      margin: 0; 
+      background: #ffffff; 
+    }
+    nav { 
+      display: flex; 
+      justify-content: flex-end; 
+      padding: 2.5rem 4rem; 
+      gap: 2.5rem; 
+    }
+    nav a { 
+      text-decoration: none; 
+      color: #000000; 
+      font-size: 0.85rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.15em; 
+    }
+    
+    .grid-container { 
+      display: grid; 
+      grid-template-columns: 1fr 240px; 
+      gap: 5rem; 
+      max-width: none; 
+      margin: 5rem auto; 
+      padding: 0 4rem; 
+    }
+    
+    /* Style rules for your parsed markdown data container */
+    #markdown-target h2 { font-size: 1.5rem; font-weight: 400; margin-top: 0; margin-bottom: 1.5rem; }
+    #markdown-target h3 { font-size: 1.1rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.5rem; }
+    #markdown-target p { color: #888888; font-size: 0.95rem; line-height: 1.6; }
+    #markdown-target ul { color: #888888; font-size: 0.95rem; line-height: 1.6; padding-left: 1.2rem; }
+    #markdown-target a { color: #000000; text-decoration: underline; }
+    
+    .right-column { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1rem; 
+    }
+    .right-column a { 
+      text-decoration: none; 
+      color: #888888; 
+      font-size: 1.1rem; 
+      letter-spacing: 0.05em; 
+    }
+    /* Highlight state for the currently loaded file link */
+    .right-column a.active { 
+      color: #000000; 
+      font-weight: bold; 
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../synth_design.html">Synth Design</a>
+    <a href="../dsp.html">DSP</a>
+    <a href="../side_projects.html">Side Projects</a>
+  </nav>
+
+  <div class="grid-container">
+    <div id="markdown-target">Loading log metadata profile...</div>
+    
+    <div class="right-column">
+      <a href="project_shell.html?file=dsa.md" id="link-dsa.md">DSA</a>
+      
+    </div>
+  </div>
+
+  <script>
+    // 1. Identify which markdown file name was clicked from the url parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetFile = urlParams.get('file') || 'vco.md';
+    
+    // 2. Bold the matching link item in the active navigation stack
+    document.getElementById(`link-${targetFile}`)?.classList.add('active');
+
+    // 3. Fetch the file locally, compile markdown to html, and apply math rendering
+    fetch(targetFile)
+      .then(response => {
+        if (!response.ok) throw new Error('File path resolution error');
+        return response.text();
+      })
+      .then(markdownText => {
+        document.getElementById('markdown-target').innerHTML = marked.parse(markdownText);
+        
+        // Render math formula formatting strings ($inline$ and $$blocks$$)
+        renderMathInElement(document.getElementById('markdown-target'), {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      })
+      .catch(err => {
+        document.getElementById('markdown-target').innerHTML = `<h2>Error</h2><p>Could not locate module asset log parameters.</p>`;
+      });
+  </script>
+</body>
+</html>

@@ -73,6 +73,12 @@
     .right-column a:hover { 
       color: #000000; 
     }
+    /* Targets only links that go to external websites */
+    a[href^="http://"], 
+    a[href^="https://"] {
+      color: #2a2b2c;          /* Replace with your preferred external link color */
+      text-decoration: underline; /* Optional: gives a visual cue it's an external link */
+    }
   </style>
 </head>
 <body>
@@ -87,12 +93,19 @@
     <a href="dsp.html">DSP</a>
     <a href="side_projects.html">Side Projects</a>
     <a href="about.html">about</a>
+    <a href="https://abbeypi.substack.com/" target="_blank" rel="noopener noreferrer">AbbeyPi</a>
   </nav>
 
   <div class="grid-container">
     <div class="left-pane">
-      <h2>Synth Design</h2>
-      <p>An ode to Brian Eno, Boards of Canada, Aphex Twin, and Robert Moog. </p>
+      <h2>About</h2>
+      <p>Waddup,</p>
+      <p>My name is Abbey Pienaar, I'm a 2nd year Electronic Engineering student at the University of Pretoria. I'm interested in audio applications, signal processing, mathematics, and committed to being a student of the world.</p>
+      <p>Some personal explorations include my art practise, writing, and philosophy, all of which can be viewed on my Substack. <a href="https://abbeypi.substack.com/" target="_blank" rel="noopener noreferrer">AbbeyPi</a></p>
+
+      
+
+      
     </div>
     
     
