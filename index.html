@@ -10,27 +10,118 @@
       margin: 0; 
       background: #ffffff; 
     }
+    .logo {
+      font-family: Bahnschrift;
+      font-size: 3rem;
+      font-weight: 200;       /* Makes the font bold/strong */
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: #424d48;
+      text-decoration: none;
+    }
     nav { 
       display: flex; 
-      justify-content: flex-end; 
+      justify-content: space-between; 
+      align-items: center;
       padding: 2.5rem 4rem; 
       gap: 2.5rem; 
     }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
     nav a { 
       text-decoration: none; 
-      color: #000000; 
+      color: #424d48; 
       font-size: 0.85rem; 
       text-transform: uppercase; 
       letter-spacing: 0.15em; 
+    }
+    .hero-image-container {
+      display: flex;
+      justify-content: center;  /* Centers the image horizontally */
+      align-items: center;      /* Centers the image vertically if context allows */
+      width: 100%;
+      margin: 1.5rem 0 5rem 0;           /* Adds proportional breathing room top and bottom */
+      padding: 0 4rem;          /* Coordinates alignment with your nav margins */
+      box-sizing: border-box;
+    }
+
+    .center-image {
+      width: 55%;               /* Right in between the original layout and the massive 75% scale */
+      max-width: 950px;         /* A balanced boundary for wide-screen monitors */
+      height: auto;             /* Keeps the aspect ratio perfectly proportional */
+      max-height: 62vh;         /* The exact geometric midpoint of your vertical screen scaling */
+      object-fit: contain;
+    }
+    /* 1. The structural outer container locked to the bottom */
+    .ticker-wrap {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;                 /* Hides the text spilling past the screen edges */
+      background-color: #ffffff;        /* Bold black band */
+      padding: 0.8rem 0;
+      box-sizing: border-box;
+      z-index: 9999;                    /* Keeps it floating above everything else */
+    }
+
+    /* 2. The flex wrapper that moves */
+    .ticker {
+      display: flex;
+      width: max-content;
+    }
+
+    /* 3. The actual text track formatting */
+    .ticker__item {
+      flex-shrink: 0;
+      width: max-content;                      /* Matches the layout track size exactly */
+      white-space: nowrap;              /* Keeps everything on a single line */
+      font-family: Bahnschrift, "DIN Alternate", sans-serif-condensed, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      word-spacing: 2em;
+      color: #424d48;                   /* Stark white text against the black band */
+      animation: tickerLoop 20s linear infinite; /* Smooth, continuous execution */
+    }
+
+    /* 4. The hardware-accelerated loop math */
+    @keyframes tickerLoop {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0); /* Perfectly shifts left by one full string length */
+      }
     }
   </style>
 </head>
 <body>
   <nav>
+    <a href="index.html" class="logo">abbey&pi;</a>
+    
+    <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="synth_design.html">Synth Design</a>
     <a href="dsp.html">DSP</a>
     <a href="side_projects.html">Side Projects</a>
   </nav>
+  <div class="hero-image-container">
+    <img src="images/17SquaresEpic.png" alt="Landing Graphic" class="center-image">
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker__item">
+        it's&nbsp;&nbsp;all&nbsp;&nbsp;doomed,&nbsp;&nbsp;then&nbsp;&nbsp;you&nbsp;&nbsp;go&nbsp;&nbsp;outside&nbsp;&nbsp;and&nbsp;&nbsp;realize&nbsp;&nbsp;the&nbsp;&nbsp;wind&nbsp;&nbsp;has&nbsp;&nbsp;never&nbsp;&nbsp;heard&nbsp;&nbsp;your&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+        it's&nbsp;&nbsp;all&nbsp;&nbsp;doomed,&nbsp;&nbsp;then&nbsp;&nbsp;you&nbsp;&nbsp;go&nbsp;&nbsp;outside&nbsp;&nbsp;and&nbsp;&nbsp;realize&nbsp;&nbsp;the&nbsp;&nbsp;wind&nbsp;&nbsp;has&nbsp;&nbsp;never&nbsp;&nbsp;heard&nbsp;&nbsp;your&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div class="ticker__item">
+        it's&nbsp;&nbsp;all&nbsp;&nbsp;doomed,&nbsp;&nbsp;then&nbsp;&nbsp;you&nbsp;&nbsp;go&nbsp;&nbsp;outside&nbsp;&nbsp;and&nbsp;&nbsp;realize&nbsp;&nbsp;the&nbsp;&nbsp;wind&nbsp;&nbsp;has&nbsp;&nbsp;never&nbsp;&nbsp;heard&nbsp;&nbsp;your&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+        it's&nbsp;&nbsp;all&nbsp;&nbsp;doomed,&nbsp;&nbsp;then&nbsp;&nbsp;you&nbsp;&nbsp;go&nbsp;&nbsp;outside&nbsp;&nbsp;and&nbsp;&nbsp;realize&nbsp;&nbsp;the&nbsp;&nbsp;wind&nbsp;&nbsp;has&nbsp;&nbsp;never&nbsp;&nbsp;heard&nbsp;&nbsp;your&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
 </body>
 </html>
